@@ -1,28 +1,28 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
-    path: '/',
+    path: '/frontend',
     name: 'Layout',
     component: () => import(/* webpackChunkName: "DefaultLayout" */ '/src/layouts/DefaultLayout.vue'),
 
     children: [
           {
-            path: '/',
+            path: '',
             name: 'LandingPage',
             component: () => import(/* webpackChunkName: "LandingPage" */ '/src/components/interface/LandingPage.vue')
           },
           {
-            path: '/about',
+            path: 'about',
             name: 'AboutPage',
             component: () => import(/* webpackChunkName: "AboutPage" */ '/src/components/interface/AboutPage.vue')
           },
           {
-            path: '/service',
+            path: 'service',
             name: 'ServicePage',
             component: () => import(/* webpackChunkName: "AboutPage" */ '/src/components/interface/ServicePage.vue')
           },
           {
-            path: '/contact',
+            path: 'contact',
             name: 'ContactPage',
             component: () => import(/* webpackChunkName: "AboutPage" */ '/src/components/interface/ContactPage.vue')
           }
