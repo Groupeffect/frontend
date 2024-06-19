@@ -1,0 +1,12 @@
+<svg fill="none" version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+ <g transform="matrix(.99999 0 0 .99999 .00015997 2.435)">
+  <g transform="matrix(1.1702 0 0 1.1702 -8.5118 -2.4348)">
+   <g transform="matrix(1 0 0 1 .8701 -.43497)" fill="#000">
+    <ellipse cx="47.762" cy="16.402" rx="3.9953" ry="3.9653"/>
+    <ellipse cx="58.498" cy="16.402" rx="3.9953" ry="3.9653"/>
+   </g>
+   <text transform="matrix(0 .97108 -1.0298 0 0 0)" x="-4.0448422" y="-20.786966" fill="#000000" font-size="82.836px" stroke-width="6.9029" xml:space="preserve"><tspan x="-4.0448422" y="-20.786966" font-family="Manjari" stroke-width="6.9029">G</tspan></text>
+   <text transform="matrix(0 .97108 -1.0298 0 0 0)" x="50.647156" y="-27.21937" fill="#000000" font-size="63.324px" stroke-width="5.2769" xml:space="preserve"><tspan x="50.647156" y="-27.21937" font-family="Manjari" stroke-width="5.2769">E</tspan></text>
+  </g>
+ </g>
+</svg>
