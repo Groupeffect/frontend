@@ -27,6 +27,23 @@ export default defineConfig({
 				short_name: 'webinterface',
 				description: 'Groupeffect',
 				theme_color: '#ffffff',
+				icons: [
+					{
+						src: "/frontend/src/assets/android-chrome-192x192.png",
+						sizes: "192x192",
+						type: "image/png"
+					},
+					{
+						src: "/frontend/src/assets/android-chrome-512x512.png",
+						sizes: "512x512",
+						type: "image/png"
+					},
+					{
+						src: "/frontend/src/assets/apple-touch-icon.png",
+						sizes: "180x180",
+						type: "image/png"
+					}
+				],
 			},
 
 		}),
