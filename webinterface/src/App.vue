@@ -73,6 +73,4 @@ export default {
   filter: invert(1); /* Invert colors completely */
   max-width: 70px;
 }
-
-
 </style>
