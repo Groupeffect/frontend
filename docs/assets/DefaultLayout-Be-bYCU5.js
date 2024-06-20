@@ -1,0 +1,1 @@
+import{_ as o,c as t,a,o as r,r as n}from"./index-BEcbzElz.js";const c={name:"DefaultLayout",computed:{}};function s(u,_,p,l,f,m){const e=n("router-view");return r(),t("div",null,[a(e)])}const i=o(c,[["render",s]]);export{i as default};

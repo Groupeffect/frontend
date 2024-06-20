@@ -19,8 +19,10 @@ const myCustomDarkTheme = {
     'secondary-darken-1': '#018786',
     error: '#B00020',
     info: '#2196F3',
-    success: '#4CAF50',
     warning: '#FB8C00',
+    danger: 'rgba(190,0,0,0)',
+    active: 'rgba(0,130,140,0)',
+    success: 'rgba(0,160,100,0)',
   },
   variables: {
     'border-color': '#000000',

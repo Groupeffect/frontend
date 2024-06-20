@@ -11,8 +11,13 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "animate.css": "^4.1.1",
+    "axios": "^1.7.1",
+    "dexie": "^4.0.7",
     "roboto-fontface": "*",
+    "pinia": "^2.1.7",
+    "pinia-orm": "^1.9.1",
     "vue": "^3.4.21",
+    "vue-axios": "^3.5.2",
     "vue-router": "^4.0.3",
     "vuetify": "npm:@vuetify/nightly@next",
     "webfontloader": "^1.0.0"

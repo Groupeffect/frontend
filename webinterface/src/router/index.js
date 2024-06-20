@@ -19,12 +19,17 @@ const routes = [
           {
             path: 'service',
             name: 'ServicePage',
-            component: () => import(/* webpackChunkName: "AboutPage" */ '/src/components/interface/ServicePage.vue')
+            component: () => import(/* webpackChunkName: "ServicePage" */ '/src/components/interface/ServicePage.vue')
           },
           {
             path: 'contact',
             name: 'ContactPage',
-            component: () => import(/* webpackChunkName: "AboutPage" */ '/src/components/interface/ContactPage.vue')
+            component: () => import(/* webpackChunkName: "ContactPage" */ '/src/components/interface/ContactPage.vue')
+          },
+          {
+            path: 'user',
+            name: 'LoggingPage',
+            component: () => import(/* webpackChunkName: "LoggingPage" */ '/src/components/interface/LoggingPage.vue')
           }
         ]
   }

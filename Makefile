@@ -16,4 +16,5 @@ push:
 	git commit -m "update and build locally"
 	git push	
 
-	
+install:
+	cd $(APP_PATH) && yarn install

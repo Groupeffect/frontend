@@ -36,6 +36,6 @@ export default defineConfig({
 		outDir: "../docs"
 	},
 	base: process.env.NODE_ENV === 'production'
-		? 'https://groupeffect.github.io/frontend/'
-		: '/frontend/'
+		? 'https://groupeffect.github.io/frontend'
+		: '/frontend'
 })
