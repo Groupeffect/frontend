@@ -13,7 +13,7 @@ push:
 	make build
 	cd $(REPO_PATH)
 	git add .
-	git commit -m "update and build locally"
+	git commit -m "update and build at $(date)"
 	git push	
 
 install:
