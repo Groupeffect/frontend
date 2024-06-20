@@ -26,6 +26,7 @@ export default {
         $env(){
             return Environment
         },
+
         $login(user){
             const userJwt = Environment.find('userJwt')
             const userEmail = Environment.find('userEmail')

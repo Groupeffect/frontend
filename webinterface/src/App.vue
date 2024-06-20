@@ -9,7 +9,7 @@
       </v-app-bar-title>
       <v-spacer></v-spacer>
       <template v-slot:append>
-        <v-app-bar-nav-icon :color="$activeUser ? 'active': ''" @click.stop="drawer = !drawer" title="Menu"></v-app-bar-nav-icon>
+        <v-app-bar-nav-icon :color="$activeUser ? 'active': ''" @click="setMenuState()" title="Menu"></v-app-bar-nav-icon>
       </template>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" location="right">
@@ -63,7 +63,9 @@ export default {
     ]
   }),
   computed: {
-
+    menuActive() {
+      return this.drawer
+    },
     navBgCss() {
       return {
         'background-image': `url(${this.navBg})`,
@@ -78,6 +80,13 @@ export default {
         "left": "0"
       } ||  null
     }
+  },
+  methods: {
+    setMenuState(){
+            this.drawer = !this.drawer
+    },
+  },
+  mounted() {
   },
   created() {
     Environment.load()

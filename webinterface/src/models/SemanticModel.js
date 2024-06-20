@@ -48,29 +48,18 @@ export default class SemanticValue extends Model {
         
     }
     static save(data) {
-        console.log('saving')
-        console.log(this.entity)
+        console.log('saving',this.entity, data)
         this.useRepo(this).save(data)
         if(data) {
             this.all().map(e=>
-                {console.log(e)
-                this.idb().put(e)}
+                {
+                    this.idb().put(e)
+                }
             )
         }
     }
     static flush() {
         this.all().map(e=>this.idb().delete(e.id))
         this.useRepo(this).flush()
-        this.log()
-    }
-    static log() {
-        console.log('pinia data')
-        console.log(this.all())
-        this.idb().toArray().then((data) => {
-            console.log('idb data')
-            console.log(data)
-            }
-        )
-        
     }
 }
