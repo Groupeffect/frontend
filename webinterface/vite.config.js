@@ -6,8 +6,8 @@ import vue from '@vitejs/plugin-vue'
 import vuetify from 'vite-plugin-vuetify'
 
 const assets = process.env.NODE_ENV === 'production'
-? '/frontend/assets'
-: '/frontend/src/assets'
+? '/frontend/assets/'
+: '/frontend/src/assets/'
 // https://vitejs.dev/config/
 export default defineConfig({
 	define: {
@@ -41,7 +41,7 @@ export default defineConfig({
 						type: "image/png"
 					},
 					{
-						src: assets + "/apple-touch-icon.png",
+						src: assets + "apple-touch-icon.png",
 						sizes: "180x180",
 						type: "image/png"
 					}
