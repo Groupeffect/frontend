@@ -5,7 +5,9 @@ import vue from '@vitejs/plugin-vue'
 // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
 import vuetify from 'vite-plugin-vuetify'
 
-
+const assets = process.env.NODE_ENV === 'production'
+? '/frontend/assets'
+: '/frontend/src/assets'
 // https://vitejs.dev/config/
 export default defineConfig({
 	define: {
@@ -29,20 +31,20 @@ export default defineConfig({
 				theme_color: '#ffffff',
 				icons: [
 					{
-						src: "/frontend/src/assets/android-chrome-192x192.png",
+						src: assets + "android-chrome-192x192.png",
 						sizes: "192x192",
 						type: "image/png"
 					},
 					{
-						src: "/frontend/src/assets/android-chrome-512x512.png",
+						src: assets + "android-chrome-512x512.png",
 						sizes: "512x512",
 						type: "image/png"
 					},
-					// {
-					// 	src: "/frontend/src/assets/apple-touch-icon.png",
-					// 	sizes: "180x180",
-					// 	type: "image/png"
-					// }
+					{
+						src: assets + "/apple-touch-icon.png",
+						sizes: "180x180",
+						type: "image/png"
+					}
 				],
 			},
 
