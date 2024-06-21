@@ -48,11 +48,17 @@ import Environment from '/src/models/interface/Environment';
 import logo from '/src/assets/logo.svg'
 import navBg from '/src/assets/navigation-drawer-bg.png'
 import MessageWrapper from './components/notification/MessageWrapper.vue';
+
+import png2 from '/src/assets/apple-touch-icon.png'
+import png3 from '/src/assets/android-chrome-512x512.png'
+import png4 from '/src/assets/android-chrome-192x192.png'
+
 export default {
   components: { MessageWrapper },
   name: 'App',
   data: () => ({
     drawer: false,
+    png: [png2, png3, png4],
     logo,
     navBg,
     navLinks: [

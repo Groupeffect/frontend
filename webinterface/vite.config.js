@@ -24,6 +24,11 @@ export default defineConfig({
 			devOptions: {
 				enabled: true
 			},
+			workbox: {
+				globPatterns: ['**/*.{js,css,html,svg,png,ico}'],
+				cleanupOutdatedCaches: true,
+				clientsClaim: true,
+			},
 			manifest: {
 				name: 'webinterface',
 				short_name: 'webinterface',
