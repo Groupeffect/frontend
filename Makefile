@@ -10,6 +10,10 @@ up:
 build:
 	cd $(APP_PATH) && yarn build --emptyOutDir
 
+	cp $(APP_PATH)/src/assets/apple-touch-icon.png $(REPO_PATH)/docs/assets/apple-touch-icon.png
+	cp $(APP_PATH)/src/assets/android-chrome-512x512.png $(REPO_PATH)/docs/assets/android-chrome-512x512.png
+	cp $(APP_PATH)/src/assets/android-chrome-192x192.png $(REPO_PATH)/docs/assets/android-chrome-192x192.png
+
 push:
 	make build
 	cd $(REPO_PATH)
