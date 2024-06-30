@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
-    path: '/frontend',
+    path: '/'+ process.env.BASE_URL_PREFIX,
     name: 'Layout',
     component: () => import(/* webpackChunkName: "DefaultLayout" */ '/src/layouts/DefaultLayout.vue'),
 

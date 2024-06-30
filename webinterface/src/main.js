@@ -1,21 +1,21 @@
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-import axios from 'axios'
-import vuetify from './plugins/vuetify'
-import { loadFonts } from './plugins/webfontloader'
-import router from './router'
-import VueAxios from 'vue-axios'
+/**
+ * main.js
+ *
+ * Bootstraps Vuetify and other plugins then mounts the App`
+ */
+
+// Components
 import App from './App.vue'
 import MainMixin from './mixins/MainMixin'
 import 'animate.css'
+// Composables
+import { createApp } from 'vue'
 
+// Plugins
+import { registerPlugins } from './plugins'
 
-loadFonts()
 const app = createApp(App)
 
-app.use(createPinia())
-app.use(VueAxios, axios)
+registerPlugins(app)
 app.mixin(MainMixin)
-app.use(router)
-app.use(vuetify)
 app.mount('#app')

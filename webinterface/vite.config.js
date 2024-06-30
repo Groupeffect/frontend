@@ -4,11 +4,36 @@ import vue from '@vitejs/plugin-vue'
 
 // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
 import vuetify from 'vite-plugin-vuetify'
+const baseUrlLocal = ''
+const baseUrlOnline = process.env['BASE_URL'] || 'https://groupeffect.github.io'
+const baseUrlPrefix = process.env['BASE_URL_PREFIX'] || 'frontend'
+
+if(!process.env['BASE_URL']){
+	process.env.NODE_ENV === 'production'
+		? process.env.BASE_URL = baseUrlOnline
+		: process.env.BASE_URL = baseUrlLocal
+}
+if(!process.env['BASE_URL_PREFIX']){
+	process.env.BASE_URL_PREFIX = baseUrlPrefix
+}
+
+if(!process.env['BACKEND_URL']){
+	process.env.NODE_ENV === 'production'
+	? process.env.BACKEND_URL = "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
+	: process.env.BACKEND_URL = "http://localhost"
+	// process.env.BACKEND_URL = "http://localhost:8000"
+}
+
+if(!process.env['PICTURES_URL']){
+	process.env.PICTURES_URL = process.env.BACKEND_URL+"/pictures"
+}
+
 
 const assets = process.env.NODE_ENV === 'production'
-? '/frontend/assets/'
-: '/frontend/src/assets/'
+	? '/'+baseUrlPrefix+'/assets/'
+	: '/'+baseUrlPrefix+'/src/assets/'
 // https://vitejs.dev/config/
+
 export default defineConfig({
 	define: {
 		"process.env": process.env
@@ -20,7 +45,7 @@ export default defineConfig({
 			pwaAssets: {
 				disabled: false,
 				config: true,
-			  },
+			},
 			devOptions: {
 				enabled: true
 			},
@@ -60,6 +85,6 @@ export default defineConfig({
 		outDir: "../docs"
 	},
 	base: process.env.NODE_ENV === 'production'
-		? 'https://groupeffect.github.io/frontend'
-		: '/frontend'
+		? baseUrlOnline+'/'+baseUrlPrefix
+		: baseUrlLocal+'/'+baseUrlPrefix
 })

@@ -7,18 +7,21 @@
                         <h1 class="display-1">Welcome to {{ $interfaceName }}</h1>
                     </v-col>
                 </v-row>
-                <div v-if="!$activeUser">
-                    <v-card max-width="400">
+                <div v-if="!$user.isAuthenticated">
+                    <v-card max-width="400" @submit="$login(user)">
                         <v-card-title>
                             Please login to continue
                         </v-card-title>
-                        <div class="pa-4">
-                            <v-text-field label="Email" v-model="user.email"></v-text-field>
-                            <v-text-field class="ma-0 pa-0" label="Password" v-model="user.password"></v-text-field>
-                        </div>
-                        <v-card-actions>
-                            <v-btn size="large" block @click="$login(user)">Login</v-btn>
-                        </v-card-actions>
+                        <form>
+                            <div class="pa-4">
+                                <v-text-field @keydown.enter.prevent="$login(user)" label="Username" v-model="user.username"></v-text-field>
+                                <v-text-field @keydown.enter.prevent="$login(user)" label="Email" v-model="user.email"></v-text-field>
+                                <v-text-field @keydown.enter.prevent="$login(user)" class="ma-0 pa-0" type="password" label="Password" v-model="user.password"></v-text-field>
+                            </div>
+                            <v-card-actions >
+                                <v-btn size="large" block @click="$login(user)">Login</v-btn>
+                            </v-card-actions>
+                        </form>
                     </v-card>
                 </div>
                 <div v-else>
@@ -27,7 +30,7 @@
                             Hello {{ $userName }}
                         </v-card-title>
                         <v-card-text>
-                            You are logged in as {{ $userEmail }}
+                            {{ $userEmail }}
                         </v-card-text>
                         <v-card-actions>
                             <v-btn block color="warning" @click="$logout()">Logout</v-btn>
@@ -45,7 +48,8 @@ export default {
     data: () => ({
         user: {
             email: null,
-            password: null
+            password: null,
+            username: null
         }
     }),
     computed: {
@@ -53,6 +57,8 @@ export default {
     },
     created() {
         this.user.email = this.$userEmail
+        this.user.username = this.$userName
+        this.user.password = '12345678qw'
     }
 }
 </script>

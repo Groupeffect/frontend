@@ -1,0 +1,22 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - BACKEND_URL=http://localhost
+    #   - BASE_URL=''
+    #   - BASE_URL_PREFIX=frontend
+    #   - NODE_ENV=dev
+
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./webinterface:/app
+
+#     networks:
+#       - groupeffect_net
+
+# networks:
+#   groupeffect_net:
+#     external: true

@@ -18,15 +18,28 @@ html, body {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
-  /* animation: color-change 90s infinite; */
-  /* animation-timing-function: linear; */
-  background-color:black;
+  /* background-color:black; */
   background-image: url('/src/assets/background.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  
+}
+.bgColour {
+  background-color: rgb(7, 13, 43);
 
 }
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: color-change 90s infinite;
+  /* animation-timing-function: linear; */
+}
+
 .align-left {
     text-align: left;
 }
@@ -60,12 +73,10 @@ html, body {
 }
 
 @keyframes color-change {
-  0% { background: rgba(214, 95, 65, 0.0); }
-  25% { background: rgb(230, 230, 104); }
-  50% { background: rgba(114, 147, 196, 0.836); }
-  75% { background: rgb(30, 128, 30); }
-  90% { background: rgba(204, 214, 65, 0.795); }
-  100% { background: rgba(214, 95, 65, 0.795); }
+  0% { background-color: rgba(0, 0, 0, 0); }
+  50% { background-color: rgba(87, 0, 19, 0.493); }
+  100% { background-color: rgba(0, 0, 0, 0); }
+
   
 }
 </style>

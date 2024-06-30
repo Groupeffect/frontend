@@ -1,5 +1,8 @@
-REPO_PATH=~/apps/groupeffect/github/frontend
+PROJECT_NAME=frontend
+REPO_PATH=~/apps/groupeffect/github/$(PROJECT_NAME)
+
 APP_NAME=webinterface
+CONTAINER_NAME=frontend_web
 APP_PATH=$(REPO_PATH)/$(APP_NAME)
 APP_PORT=3000
 APP_HOST=localhost
@@ -23,3 +26,9 @@ push:
 
 install:
 	cd $(APP_PATH) && yarn install
+
+bash:
+	podman exec -it $(CONTAINER_NAME)_1 bash
+
+commit_container:
+	podman commit $(CONTAINER_NAME)_1 $(CONTAINER_NAME):latest

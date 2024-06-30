@@ -1,6 +1,5 @@
 // pinia orm model class
 import SemanticValue from "/src/models/SemanticModel.js"
-const interfaceBackendUrl = process.env['VUE_APP_BACKEND_URL'] || "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
 const dataSchema = [
     {
         id: 'interfaceName',
@@ -13,15 +12,22 @@ const dataSchema = [
         id: 'interfaceBackendUrl',
         key: "url",
         description: "Interface Backend Url",
-        dataType: "string",
-        value: interfaceBackendUrl
+        dataType: "url",
+        value: process.env.BACKEND_URL
+    },
+    {
+        id: 'interfacePicturesUrl',
+        key: "url",
+        description: "Interface Pictures Url",
+        dataType: "url",
+        value: process.env.PICTURES_URL
     },
     {
         id: 'interfaceBackendHealthCheckUrl',
         key: "url",
         description: "Backend Health Check Url",
-        dataType: "string",
-        value: interfaceBackendUrl + "/health"
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/healthcheck"
     },
     {
         id: 'userId',
@@ -47,6 +53,49 @@ const dataSchema = [
         description: "JWT Token",
         dataType: "string"
     },
+    {
+        id: 'userAuthUrl',
+        key: "user",
+        description: "User Auth Url",
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/auth/users/me/"
+
+    },
+    {
+        id: 'jwtTokenUrl',
+        key: "access",
+        description: "JWT Token Access Refresh Url",
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/auth/jwt/create/"
+    },
+    {
+        id: 'interfaceTextUrl',
+        key: "text",
+        description: "Text Url",
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/text/"
+    },
+    {
+        id: 'interfaceCardUrl',
+        key: "text",
+        description: "Card Url",
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/card/"
+    },
+    {
+        id: 'userIsAuthenticated',
+        key: "id",
+        description: "User authentication status",
+        dataType: "boolean",
+        value: false
+    },
+    {
+        id: 'jsonAssetUrl',
+        key: "url",
+        description: "Json asset url",
+        dataType: "url",
+        value: process.env.BACKEND_URL + "/assets/json/"
+    }    
 ]
 
 export default class Environmet extends SemanticValue {
@@ -61,6 +110,17 @@ export default class Environmet extends SemanticValue {
             let user= new this
             user = {...item}
             this.save(item)
+        })
+    }
+
+    static checkBackend(axios){
+        const url = this.find('interfaceBackendHealthCheckUrl').value
+        axios.get(url).then(r=>{
+            console.log('backend health',r)
+            return r.data
+        }).catch(e=>{
+            console.log('backend health error',e)
+            return e
         })
     }
 }
