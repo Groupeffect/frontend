@@ -7,6 +7,7 @@ import vuetify from 'vite-plugin-vuetify'
 const baseUrlLocal = ''
 const baseUrlOnline = process.env['BASE_URL'] || 'https://groupeffect.github.io'
 const baseUrlPrefix = process.env['BASE_URL_PREFIX'] || 'frontend'
+const backendUrl = "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
 
 if(!process.env['BASE_URL']){
 	process.env.NODE_ENV === 'production'
@@ -19,7 +20,7 @@ if(!process.env['BASE_URL_PREFIX']){
 
 if(!process.env['BACKEND_URL']){
 	process.env.NODE_ENV === 'production'
-	? process.env.BACKEND_URL = "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
+	? process.env.BACKEND_URL = backendUrl
 	: process.env.BACKEND_URL = "http://localhost"
 	// process.env.BACKEND_URL = "http://localhost:8000"
 }
@@ -85,6 +86,6 @@ export default defineConfig({
 		outDir: "../docs"
 	},
 	base: process.env.NODE_ENV === 'production'
-		? baseUrlOnline+'/'+baseUrlPrefix
+		? '/'+baseUrlPrefix
 		: baseUrlLocal+'/'+baseUrlPrefix
 })
