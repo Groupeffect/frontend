@@ -8,7 +8,7 @@ const baseUrlLocal = ''
 // const baseUrlOnline = process.env['BASE_URL'] || 'https://groupeffect.github.io'
 const baseUrlOnline = process.env['BASE_URL'] || ''
 const baseUrlPrefix = process.env['BASE_URL_PREFIX'] || 'frontend'
-const backendUrl = "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
+const backendUrl = "https://gcp-django-xdcyoa6ryq-ey.a.run.app/"
 
 if(!process.env['BASE_URL']){
 	process.env.NODE_ENV === 'production'
