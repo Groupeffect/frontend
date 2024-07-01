@@ -5,7 +5,8 @@ import vue from '@vitejs/plugin-vue'
 // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin
 import vuetify from 'vite-plugin-vuetify'
 const baseUrlLocal = ''
-const baseUrlOnline = process.env['BASE_URL'] || 'https://groupeffect.github.io'
+// const baseUrlOnline = process.env['BASE_URL'] || 'https://groupeffect.github.io'
+const baseUrlOnline = process.env['BASE_URL'] || ''
 const baseUrlPrefix = process.env['BASE_URL_PREFIX'] || 'frontend'
 const backendUrl = "https://gcp-django-xdcyoa6ryq-uc.a.run.app"
 
@@ -85,8 +86,7 @@ export default defineConfig({
 	build: {
 		outDir: "../docs"
 	},
-	// base: process.env.NODE_ENV === 'production'
-	// 	? '/'+baseUrlPrefix
-	// 	: baseUrlLocal+'/'+baseUrlPrefix
-	base: '/'+baseUrlPrefix
+	base: process.env.NODE_ENV === 'production'
+		? baseUrlOnline +'/'+baseUrlPrefix
+		: baseUrlLocal+'/'+baseUrlPrefix
 })
