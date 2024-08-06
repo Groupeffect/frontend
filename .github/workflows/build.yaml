@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: show infos & make build
         run: |
+          env
           node -v
           yarn -v
           make -v
@@ -27,6 +28,6 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${GITHUB_REF}
+          # branch: ${GITHUB_REF}
           # force: true
           
