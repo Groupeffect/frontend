@@ -17,5 +17,8 @@ jobs:
           cd webinterface && yarn install
           cd .. && make build
           git status
+          git add .
+          git commit -m 'auto build - $(date)'
+          git push
 
           
