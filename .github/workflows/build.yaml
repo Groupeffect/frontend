@@ -16,13 +16,14 @@ jobs:
           node -v
           yarn -v
           make -v
+          export USER='WorkflowUser-$(date)'
           git config --global user.email "admin@groupeffect.de"
-          git config --global user.name 'WorkflowUser-$(date)'
+          git config --global user.name ${USER}
           cd webinterface && yarn install
           cd .. && make build
           git status
           git add .
           git commit -m 'auto build - $(date)'
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
+          git push https://${USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
           git status
           
