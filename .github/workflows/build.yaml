@@ -14,7 +14,8 @@ jobs:
           node -v
           yarn -v
           make -v
-          make build
+          cd webinterface && yarn install
+          cd .. && make build
           git status
 
           
