@@ -8,9 +8,7 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - uses: actions/checkout@v2
       - name: show infos & make build
         run: |
           node -v
@@ -24,6 +22,11 @@ jobs:
           git status
           git add .
           git commit -m 'auto build - $(date)'
-          git push https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
           git status
+      - name: Push changes # push the output folder to your repo
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${GITHUB_REF}
+          # force: true
           
