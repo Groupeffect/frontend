@@ -14,6 +14,8 @@ jobs:
           node -v
           yarn -v
           make -v
+          git config --global user.email "admin@groupeffect.de"
+          git config --global user.name 'WorkflowUser-$(date)'
           cd webinterface && yarn install
           cd .. && make build
           git status
