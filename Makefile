@@ -1,5 +1,5 @@
 PROJECT_NAME=frontend
-REPO_PATH=~/apps/groupeffect/github/$(PROJECT_NAME)
+REPO_PATH=.
 
 APP_NAME=webinterface
 CONTAINER_NAME=frontend_web
