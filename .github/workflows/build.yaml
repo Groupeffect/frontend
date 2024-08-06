@@ -12,8 +12,8 @@ jobs:
       - name: show infos
         run: |
           node -v
-          # curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh
-          # bash ./nodesource_setup.sh
-          # apt update && apt install nodejs
+          yarn -v
+          make -v
+          
 
           
