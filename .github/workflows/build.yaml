@@ -25,7 +25,7 @@ jobs:
           git commit -m 'auto build - $(date)'
           git status
           echo 'env:${GITHUB_REF_NAME}'
-          echo ${{ GITHUB_REF_NAME }}
+          echo 'wf:${{ GITHUB_REF_NAME }}'
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
