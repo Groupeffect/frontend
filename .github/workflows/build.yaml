@@ -23,6 +23,6 @@ jobs:
           git status
           git add .
           git commit -m 'auto build - $(date)'
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/Groupeffect/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
           git status
           
