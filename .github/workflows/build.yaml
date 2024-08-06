@@ -9,6 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       - name: show infos & make build
         run: |
           node -v
@@ -21,6 +23,6 @@ jobs:
           git status
           git add .
           git commit -m 'auto build - $(date)'
-          git push
-
+          git push https://x-access-token:${GITHUB_TOKEN}@github.com/Groupeffect/${GITHUB_REPOSITORY}.git HEAD:${GITHUB_REF} --no-push
+          git status
           
