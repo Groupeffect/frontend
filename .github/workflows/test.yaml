@@ -1,0 +1,21 @@
+name: Test workflow
+
+on:
+  push:
+    branches: [ main, development ]
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: show infos
+        run: |
+          apt list
+          env
+          ls -alF
+          which sh
+          whoami
+          pwd
+
+          
