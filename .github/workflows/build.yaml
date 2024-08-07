@@ -8,23 +8,25 @@ jobs:
   checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: check tools
+        run: 
+      - uses: actions/checkout@v4
       - name: show infos & make build
         run: |
           env
           node -v
           yarn -v
           make -v
-          export USER='WorkflowUser-$(date)'
+          export USER="WorkflowUser-$(date)"
           git config --global user.email "admin@groupeffect.de"
           git config --global user.name ${USER}
           cd webinterface && yarn install
           cd .. && make build
           git status
           git add .
-          git commit -m 'auto build - $(date)'
+          git commit -m "auto build - $(date)"
           git status
-          echo 'env:${GITHUB_REF_NAME}'
+          echo "branch:${GITHUB_REF_NAME}"
       - name: Push changes # push the output folder to your repo
         uses: ad-m/github-push-action@master
         with:
